@@ -9,7 +9,12 @@ const app  = express();
 const PORT = process.env.PORT || 3000;
 
 // ── MIDDLEWARE ─────────────────────────────────────────
-app.use(cors());
+app.use(cors({
+  origin: '*',
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
+app.options('*', cors());
 app.use(express.json({ limit: '10mb' }));
 
 // ── CONNECT TO MONGODB ─────────────────────────────────
