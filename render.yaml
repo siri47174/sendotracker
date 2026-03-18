@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: sendo-fleet-api
+    runtime: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: MONGODB_URI
+        sync: false
+      - key: PORT
+        value: 3000
